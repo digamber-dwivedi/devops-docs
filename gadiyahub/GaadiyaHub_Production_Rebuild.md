@@ -56,17 +56,14 @@ AWS Production Account (922981236957)
 
 ### 🔄 Phase 2 — Platform Setup (IN PROGRESS)
 
-| Task | Status | Notes |
-|------|--------|-------|
-| Helm install | ⏳ Pending | |
-| Nginx Ingress Controller | ⏳ Pending | |
-| cert-manager SSL | ⏳ Pending | Let's Encrypt |
-| Prometheus + Grafana | ⏳ Pending | kube-prometheus-stack |
-| PostgreSQL | ⏳ Pending | Helm chart |
-| Redis | ⏳ Pending | Helm chart |
-| RabbitMQ | ⏳ Pending | Helm chart |
+| Helm install | ✅ Done | v3.21.0 |
+| Nginx Ingress Controller | ✅ Done | |
+| cert-manager SSL | ✅ Done | letsencrypt-prod ClusterIssuer Ready |
+| Prometheus + Grafana | ✅ Done | NodePort 32000 |
+| PostgreSQL | 🔄 In Progress | data-services namespace |
+| Redis | ⏳ Pending | |
+| RabbitMQ | ⏳ Pending | |
 | OpenSearch (ECK) | ⏳ Pending | |
-
 ---
 
 ### ⏳ Phase 3 — Application Migration
@@ -339,7 +336,9 @@ ssh -i ~/.ssh/gadiyahub-prod-key.pem ubuntu@3.7.148.96
 | May 18, 2026 | Ansible — workers joined cluster. 3 nodes Ready. |
 | May 21, 2026 | Machines restarted after cost-saving stop. IP updated in Security Group. |
 | May 21, 2026 | Helm install — next step |
-
+| May 25, 2026 | StorageClass — local-path provisioner installed |
+| May 25, 2026 | Namespaces created — backend, data-services, observability, frontend |
+| May 25, 2026 | PostgreSQL deploying in data-services namespace |
 ---
 
 *Update this document at the end of every session.*
